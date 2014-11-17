@@ -49,16 +49,102 @@
 </section>  
 
 
-<section id="slide1" class="level1">
-<h1>Slide1</h1>
-<p>Hello World</p>
-</section>
-<section id="slide-2" class="level1">
-<h1>Slide 2</h1>
+<section id="preface" class="level1">
+<h1>Preface</h1>
+<p>Let`s face a problem nobody cares: How to distribute your software so people can install it?</p>
 <ul>
-<li>Hello 1</li>
-<li>Hello 2</li>
+<li>Presentation is done in jovial tone.</li>
+<li>Approaching the topic from a less technical view than usual.</li>
+<li>Poll: Who knows Virtualization, Sandboxing, Docker?</li>
+<li>Who had to package software already?</li>
 </ul>
+</section>
+<section id="deployment" class="level1">
+<h1>Deployment</h1>
+<p>def.: process of distributing the software to one or more clients.</p>
+</section>
+<section id="earlier" class="level1">
+<h1>Earlier</h1>
+<ul>
+<li>This meant to install the software on the client`s hardware.</li>
+<li>Using our buildsystem.</li>
+<li>And it`s dependencies.</li>
+<li>Using their buildsystem.</li>
+<li>And fixing the bugs on the client`s platform (64bit -&gt; 32 bit etc.)</li>
+<li>And to fix the bugs in the dependencies on the clients platform.</li>
+<li>And to pay the costs of the developer`s nervous breakdowns.</li>
+</ul>
+</section>
+<section id="a-bit-less-earlier" class="level1">
+<h1>A bit less earlier</h1>
+<ul>
+<li>Hey, let`s use virtualization!</li>
+<li>Simulate the client`s hardware in a virtual machine (VirtualBox etc.)</li>
+<li>Test it in the VM, just copy the tested software over.</li>
+<li>Problem solved?</li>
+<li>Nah.</li>
+<li>What if the client`s hardware changes?</li>
+</ul>
+</section>
+<section id="today" class="level1">
+<h1>Today</h1>
+<ul>
+<li>Hey, just let`s ship the VM!</li>
+<li>Works.</li>
+<li>But feels like an awful hack.</li>
+<li>Deploying a 5GB+ VM image on every software update, seriously?</li>
+</ul>
+</section>
+<section id="docker-to-the-rescue" class="level1">
+<h1>Docker to the rescue</h1>
+<ul>
+<li>One would need a way to package software into containers.</li>
+<li>But without all the redundant copies of operating systems underneath.</li>
+<li>Docker does this by providing a couple of base images, from which specialized images can be inherited.</li>
+<li>Base images are available for popular distribution like ubuntu, fedora, ... but you can create them yourself too.</li>
+<li>Docker images can be versioned, so if a new release comes out only the diff needs to be transmitted to the clients (usually only a few MB big).</li>
+<li>A process can be run in an image - that`s called an container.</li>
+</ul>
+</section>
+<section id="words-show-us-that-thing" class="level1">
+<h1>Words! Show us that thing!</h1>
+<p><short presenation></p>
+</section>
+<section id="other-usecases" class="level1">
+<h1>Other usecases</h1>
+<ul>
+<li>Deployment is one usecase.</li>
+<li>Testing is another one.</li>
+<li>Even if you do not distribute your software as docker container.</li>
+</ul>
+</section>
+<section id="other-usecases-2" class="level1">
+<h1>Other usecases 2:</h1>
+<ul>
+<li>Sandboxing applications</li>
+<li>Especially useful for application that may destroy the host filesystem.</li>
+<li>If they did so - just restart the container, everything fine again.</li>
+<li>Personal usecase: running a self-written duplicate finder on /</li>
+<li>System still working?</li>
+</ul>
+</section>
+<section id="extended-docker-features" class="level1">
+<h1>Extended docker features</h1>
+<ul>
+<li>Linking containers together.</li>
+</ul>
+</section>
+<section id="other-usecases-3" class="level1">
+<h1>Other usecases 3:</h1>
+<ul>
+<li>Cluster management with CoreOS.</li>
+<li>No time to explain.</li>
+<li>Diagram with mutliple clusters.</li>
+</ul>
+</section>
+<section id="so-docker-is-the-new-thing" class="level1">
+<h1>So, docker is the new thing?</h1>
+<p>It has its shortcomings still, for example it is currently only possible to run linux based operating systems as container. Microsoft announced that Windows support will follow.</p>
 </section>
 </div>
 
