@@ -1,6 +1,6 @@
 # Preface
 
-Let`s face a problem nobody cares:
+Lets face a problem nobody cares:
 How to distribute your software so people can install it?
 
 * Presentation is done in jovial tone.
@@ -8,11 +8,11 @@ How to distribute your software so people can install it?
 * Poll: Who knows Virtualization, Sandboxing, Docker?
 * Who had to package software already?
 
-# Deployment
+## Deployment
 
-def.: process of distributing the software to one or more clients.
+``Def:`` The process of distributing software to client machines or servers.
 
-# Earlier
+## How was this done earlier?
 
 * This meant to install the software on the client`s hardware.
 * Using our buildsystem.
@@ -48,11 +48,11 @@ def.: process of distributing the software to one or more clients.
   but you can create them yourself too.
 * Docker images can be versioned, so if a new release comes out only the diff
   needs to be transmitted to the clients (usually only a few MB big).
-* A process can be run in an image - that`s called an container.
+* A process can be run in an image - thats called an container.
 
 # Words! Show us that thing!
 
-<short presenation>
+short presenation..
 
 # Other usecases
 

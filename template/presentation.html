@@ -14,7 +14,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 <link rel="stylesheet" href="css/reveal.min.css">
-  <link rel="stylesheet" href="css/theme/blood.css" id="theme">
+  <link rel="stylesheet" href="css/theme/sky.css" id="theme">
 
 
 <!-- For syntax highlighting -->
@@ -51,20 +51,19 @@
 
 <section id="preface" class="level1">
 <h1>Preface</h1>
-<p>Let`s face a problem nobody cares: How to distribute your software so people can install it?</p>
+<p>Lets face a problem nobody cares: How to distribute your software so people can install it?</p>
 <ul>
 <li>Presentation is done in jovial tone.</li>
 <li>Approaching the topic from a less technical view than usual.</li>
 <li>Poll: Who knows Virtualization, Sandboxing, Docker?</li>
 <li>Who had to package software already?</li>
 </ul>
+<section id="deployment" class="level2">
+<h2>Deployment</h2>
+<p><code>Def:</code> The process of distributing software to client machines or servers.</p>
 </section>
-<section id="deployment" class="level1">
-<h1>Deployment</h1>
-<p>def.: process of distributing the software to one or more clients.</p>
-</section>
-<section id="earlier" class="level1">
-<h1>Earlier</h1>
+<section id="how-was-this-done-earlier" class="level2">
+<h2>How was this done earlier?</h2>
 <ul>
 <li>This meant to install the software on the client`s hardware.</li>
 <li>Using our buildsystem.</li>
@@ -74,6 +73,7 @@
 <li>And to fix the bugs in the dependencies on the clients platform.</li>
 <li>And to pay the costs of the developer`s nervous breakdowns.</li>
 </ul>
+</section>
 </section>
 <section id="a-bit-less-earlier" class="level1">
 <h1>A bit less earlier</h1>
@@ -103,12 +103,12 @@
 <li>Docker does this by providing a couple of base images, from which specialized images can be inherited.</li>
 <li>Base images are available for popular distribution like ubuntu, fedora, ... but you can create them yourself too.</li>
 <li>Docker images can be versioned, so if a new release comes out only the diff needs to be transmitted to the clients (usually only a few MB big).</li>
-<li>A process can be run in an image - that`s called an container.</li>
+<li>A process can be run in an image - thats called an container.</li>
 </ul>
 </section>
 <section id="words-show-us-that-thing" class="level1">
 <h1>Words! Show us that thing!</h1>
-<p><short presenation></p>
+<p>short presenation..</p>
 </section>
 <section id="other-usecases" class="level1">
 <h1>Other usecases</h1>
@@ -161,10 +161,10 @@
     center: false,
 
   // available themes are in /css/theme
-      theme: Reveal.getQueryHash().theme || 'blood', 
+      theme: Reveal.getQueryHash().theme || 'sky', 
   
   // default/cube/page/concave/zoom/linear/fade/none
-      transition: Reveal.getQueryHash().transition || 'slide',
+      transition: Reveal.getQueryHash().transition || 'linear',
   
   // Optional libraries used to extend on reveal.js
   dependencies: [
