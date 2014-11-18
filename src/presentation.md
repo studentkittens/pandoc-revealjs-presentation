@@ -1,26 +1,45 @@
+<img style="float: right" width="150" height="150" src="hsa.png">
+
+# 
+
+![](docker-logo.png)
+
 # Preface
 
-Lets face a problem nobody cares:
-How to distribute your software so people can install it?
 
-* Presentation is done in jovial tone.
-* Approaching the topic from a less technical view than usual.
-* Poll: Who knows Virtualization, Sandboxing, Docker?
-* Who had to package software already?
+<section>
+    <p class="fragment" data-fragment-index="3">Less technical than usual.</p>
+    <p class="fragment" data-fragment-index="1">Poll: Who knos Virtualization,
+    Sandboxing or Docker?</p>
+</section>
+
+<aside class="notes">
+    Presentation is done in jovial tone.
+</aside>
+
+# Definitions
 
 ## Deployment
 
-``Def:`` The process of distributing software to client machines or servers.
+``Def:`` The process of distributing software to client machines.
 
-## How was this done earlier?
+<aside class="notes">
+    Oh hey, these are some notes. They'll be hidden in your presentation, but
+    you can see them if you open the speaker notes window (hit 's' on your
+    keyboard).
+</aside>
 
-* This meant to install the software on the client`s hardware.
-* Using our buildsystem.
-* And it`s dependencies.
-* Using their buildsystem.
-* And fixing the bugs on the client`s platform (64bit -> 32 bit etc.)
-* And to fix the bugs in the dependencies on the clients platform.
-* And to pay the costs of the developer`s nervous breakdowns.
+# How is this done?
+
+This meant...
+
+* ...to install the software on the client`s hardware.
+* ...to use the software's buildsystem.
+* ...and to install it's dependencies.
+* ...using the dependencie's buildsystems.
+* ...fixing the bugs on the client's platform.
+* ...fixing the dependencies bugs. 
+* ...paying the developer's health cost for his nervous breakdowns.
 
 # A bit less earlier
 
@@ -50,9 +69,22 @@ How to distribute your software so people can install it?
   needs to be transmitted to the clients (usually only a few MB big).
 * A process can be run in an image - thats called an container.
 
+# Technical Stuff
+
+TODO
+
 # Words! Show us that thing!
 
-short presenation..
+```bash
+$ docker images
+$ docker run base/arch echo hello augsburg!
+$ uname -a
+$ docker run -t -i base/arch /bin/bash
+> uname -a
+> rm -r /bin
+$ docker diff
+```
+
 
 # Other usecases
 

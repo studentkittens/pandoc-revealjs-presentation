@@ -14,7 +14,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 <link rel="stylesheet" href="css/reveal.min.css">
-  <link rel="stylesheet" href="css/theme/sky.css" id="theme">
+  <link rel="stylesheet" href="css/theme/beige.css" id="theme">
 
 
 <!-- For syntax highlighting -->
@@ -49,31 +49,54 @@
 </section>  
 
 
+<p><img style="float: right" width="150" height="150" src="hsa.png"></p>
+<section id="section" class="level1">
+<h1></h1>
+<figure>
+<img src="docker-logo.png" />
+</figure>
+</section>
 <section id="preface" class="level1">
 <h1>Preface</h1>
-<p>Lets face a problem nobody cares: How to distribute your software so people can install it?</p>
-<ul>
-<li>Presentation is done in jovial tone.</li>
-<li>Approaching the topic from a less technical view than usual.</li>
-<li>Poll: Who knows Virtualization, Sandboxing, Docker?</li>
-<li>Who had to package software already?</li>
-</ul>
+<section>
+    <p class="fragment" data-fragment-index="3">
+Less technical than usual.
+</p>
+    <p class="fragment" data-fragment-index="1">
+Poll: Who knos Virtualization, Sandboxing or Docker?
+</p>
+</section>
+
+<aside class="notes">
+    
+Presentation is done in jovial tone.
+</aside>
+
+</section>
+<section id="definitions" class="level1">
+<h1>Definitions</h1>
 <section id="deployment" class="level2">
 <h2>Deployment</h2>
-<p><code>Def:</code> The process of distributing software to client machines or servers.</p>
+<p><code>Def:</code> The process of distributing software to client machines.</p>
+<aside class="notes">
+    
+Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
+</aside>
+
 </section>
-<section id="how-was-this-done-earlier" class="level2">
-<h2>How was this done earlier?</h2>
+</section>
+<section id="how-is-this-done" class="level1">
+<h1>How is this done?</h1>
+<p>This meant...</p>
 <ul>
-<li>This meant to install the software on the client`s hardware.</li>
-<li>Using our buildsystem.</li>
-<li>And it`s dependencies.</li>
-<li>Using their buildsystem.</li>
-<li>And fixing the bugs on the client`s platform (64bit -&gt; 32 bit etc.)</li>
-<li>And to fix the bugs in the dependencies on the clients platform.</li>
-<li>And to pay the costs of the developer`s nervous breakdowns.</li>
+<li>...to install the software on the client`s hardware.</li>
+<li>...to use the software's buildsystem.</li>
+<li>...and to install it's dependencies.</li>
+<li>...using the dependencie's buildsystems.</li>
+<li>...fixing the bugs on the client's platform.</li>
+<li>...fixing the dependencies bugs.</li>
+<li>...paying the developer's health cost for his nervous breakdowns.</li>
 </ul>
-</section>
 </section>
 <section id="a-bit-less-earlier" class="level1">
 <h1>A bit less earlier</h1>
@@ -106,9 +129,19 @@
 <li>A process can be run in an image - thats called an container.</li>
 </ul>
 </section>
+<section id="technical-stuff" class="level1">
+<h1>Technical Stuff</h1>
+<p>TODO</p>
+</section>
 <section id="words-show-us-that-thing" class="level1">
 <h1>Words! Show us that thing!</h1>
-<p>short presenation..</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">docker</span> images
+$ <span class="kw">docker</span> run base/arch echo hello augsburg!
+$ <span class="kw">uname</span> -a
+$ <span class="kw">docker</span> run -t -i base/arch /bin/bash
+<span class="kw">&gt;</span> <span class="kw">uname</span> -a
+<span class="kw">&gt;</span> <span class="kw">rm</span> -r /bin
+$ <span class="kw">docker</span> diff</code></pre>
 </section>
 <section id="other-usecases" class="level1">
 <h1>Other usecases</h1>
@@ -161,7 +194,7 @@
     center: false,
 
   // available themes are in /css/theme
-      theme: Reveal.getQueryHash().theme || 'sky', 
+      theme: Reveal.getQueryHash().theme || 'beige', 
   
   // default/cube/page/concave/zoom/linear/fade/none
       transition: Reveal.getQueryHash().transition || 'linear',
