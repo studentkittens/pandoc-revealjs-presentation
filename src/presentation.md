@@ -1,117 +1,200 @@
-<img style="float: right" width="150" height="150" src="hsa.png">
+<style type="text/css">
+    .reveal h1 { font-size: 2.0em; } 
+</style>
 
 # 
 
 ![](docker-logo.png)
 
-# Preface
+# Welcome!
 
 
-<section>
-    <p class="fragment" data-fragment-index="3">Less technical than usual.</p>
-    <p class="fragment" data-fragment-index="1">Poll: Who knos Virtualization,
-    Sandboxing or Docker?</p>
-</section>
+<p class="fragment" data-fragment-index="1"><b>Poll:</b> Who knows Virtualization/Sandboxing/Docker?</p>
+<p class="fragment" data-fragment-index="2">Presentation is less technical than usual.</p>
+<p class="fragment" data-fragment-index="3">Although might be a bit linux centered. <br /> 
+<style>
+    .reveal section img { background:none; border:none; box-shadow:none; }
+</style>
+<img class="no_img_border" src="fedora-logo.png" height="250" width="250"/>
+<img class="no_img_border" src="tux.png" height="250" width="250"/>
+<img class="no_img_border" src="arch-linux.png" height="250" width="250"/>
+</p>
 
 <aside class="notes">
     Presentation is done in jovial tone.
 </aside>
 
-# Definitions
+# Terms
 
 ## Deployment
 
 ``Def:`` The process of distributing software to client machines.
 
+## Sandboxing
+
+``Def:`` Environment for application that provide limited resource access.
+
 <aside class="notes">
-    Oh hey, these are some notes. They'll be hidden in your presentation, but
-    you can see them if you open the speaker notes window (hit 's' on your
-    keyboard).
+    Before we actually start, there are some terms that need clarification.
 </aside>
 
-# How is this done?
+## Virtualization
 
-This meant...
+`Def:` Emulation of hardware through software in order  to run a guest operating system on top of a host system.
 
-* ...to install the software on the client`s hardware.
+# How Deployment was done around 1950
+
+<aside class="notes">
+    So, what happens if we're a company that has written some server side software,
+    which needs to be installed on the client's hardware? Our software has many 
+    dependencies, might rely on certain software versions of, for example, Apache.
+
+    Certain dependencies might still have bugs.
+</aside>
+
+Software deployment meant...
+
+* ...to install the software on the clients hardware.
 * ...to use the software's buildsystem.
 * ...and to install it's dependencies.
 * ...using the dependencie's buildsystems.
-* ...fixing the bugs on the client's platform.
-* ...fixing the dependencies bugs. 
-* ...paying the developer's health cost for his nervous breakdowns.
+* ...fixing possible bugs on the client's platform.
+* ...fixing possible dependencies bugs. 
+* ...paying treatment cost developer's burnout.
 
-# A bit less earlier
+# A bit more recent
 
-* Hey, let`s use virtualization!
-* Simulate the client`s hardware in a virtual machine (VirtualBox etc.)
+* Hey, lets use virtualization for testing!
+* Simulate the clients environment in a virtual machine.
 * Test it in the VM, just copy the tested software over.
-* Problem solved?
-   * Nah.
-* What if the client`s hardware changes?
+* What if the clients environment changes?
 
-# Today
+# Try again
 
-* Hey, just let`s ship the VM!
+* Hey, just lets ship the Virtual Machine Image!
 * Works. 
 * But feels like an awful hack.
-* Deploying a 5GB+ VM image on every software update, seriously?
+* Deploying a 5GB+ VM image on every software update.
+* Seriously?
 
 # Docker to the rescue
 
-* One would need a way to package software into containers.
-* But without all the redundant copies of operating systems underneath.
-* Docker does this by providing a couple of base images, from which specialized
-  images can be inherited.
-* Base images are available for popular distribution like ubuntu, fedora, ...
-  but you can create them yourself too.
-* Docker images can be versioned, so if a new release comes out only the diff
-  needs to be transmitted to the clients (usually only a few MB big).
-* A process can be run in an image - thats called an container.
+* Containers instead of Images.
+* Deploying the ``diff`` instead of the whole container.
+* Base images for many popular linux distributions.
+* New base images can be uploaded to [DockerHub](https://hub.docker.com/).
+* Docker is the application engine that is able to run containers.
+
+# Features
+
+* Very fast booting containers (same Kernel!)
+* Containerized applications run sandboxed.
+* Easy to pack own applications in containers.
+* Support for creating own Images.
+* Built-in versioning support.
+* Divided in Daemon and Docker clients.
+- Linking containers together.
+* ...
+
+# 
+
+![http://shipyard-project.com](shipyard.png)
 
 # Technical Stuff
 
-TODO
+* Focus on processes, not on virtualizing operating systems.
+* One process per container.
 
-# Words! Show us that thing!
+## Docker builds on Linux features:
 
-```bash
+* **cgroups:** Grouping processes together.
+* **namespaces:** Separate processes in own namespaces.
+* **LXC:** Combines both to provide *Operating system-level virtualization.*
+* **aufs:** Overlay file system.
+
+# 
+
+<img src="docker-containers.png" alt="Two containers"/>
+
+# Demonstration
+
+## Hello World
+
+<section><pre><code class="bash">
 $ docker images
-$ docker run base/arch echo hello augsburg!
+$ docker run base/arch "echo hello augsburg!"
+</code></pre></section>
+
+## Entering a container
+
+<section><pre><code class="bash">
 $ uname -a
 $ docker run -t -i base/arch /bin/bash
 > uname -a
 > rm -r /bin
+</code></pre></section>
+
+## Versioning
+
+<section><pre><code class="bash">
 $ docker diff
-```
+$ docker hub
+</code></pre></section>
 
+# Usecases
 
-# Other usecases
+* Deployment.
+* Sandboxing applications.
+* Testbed for application developement.
+<aside class="notes">
+    Personal usecase: running a self-written duplicate finder on / 
+    System still working? No? Just restart the container.
+</aside>
 
-* Deployment is one usecase.
-* Testing is another one.
-* Even if you do not distribute your software as docker container.
+* Cluster Management with ``CoreOS``.
+* ...
 
-# Other usecases 2:
+# 
 
-* Sandboxing applications
-* Especially useful for application that may destroy the host filesystem.
-* If they did so - just restart the container, everything fine again.
-* Personal usecase: running a self-written duplicate finder on / 
-* System still working?
+<img src="core-os.png" alt="Two containers"/>
+<img src="core-os-logo.png" alt="Two containers"/>
 
-# Extended docker features
-
-- Linking containers together.
-
-# Other usecases 3:
-
-* Cluster management with CoreOS.
-* No time to explain.
-* Diagram with mutliple clusters. 
 
 # So, docker is the new thing? 
 
-It has its shortcomings still, for example it is currently only
-possible to run linux based operating systems as container.
-Microsoft announced that Windows support will follow. 
+Depends on your usecase.
+
+* Still can only run Linux based containers.
+* But it can run them on Windows/MacOSX using lightweight virtualization.
+  (``boot2docker``).
+* Microsoft has plans to port Docker fully to Windows.
+* And even to use Windows as Image.
+* What about GUI applications?
+
+# 
+
+![](docker-value.png)
+
+# Are there areas where virtualization is still needed?
+
+Yes.
+
+# References
+
+``Docker on Wikipedia:`` 
+
+[http://en.wikipedia.org/wiki/Docker_(software)]()
+
+``docker.com:``
+
+[https://docker.com]()
+
+``coreos.com:``
+
+[https://coreos.com]()
+
+
+
+# Thank you for your attention
+
+(*Hooray, school's out!*)
