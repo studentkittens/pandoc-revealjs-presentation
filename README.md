@@ -4,7 +4,7 @@ pandoc-revealjs-presentation
 
 ~~~~bash
 
-$ sudo yum -y install npm grunt-cli
+$ sudo yum -y install npm nodejs-grunt-cli
 $ cd template/ 
 $ npm install
 $ cd ..
