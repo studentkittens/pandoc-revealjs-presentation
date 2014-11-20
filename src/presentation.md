@@ -54,36 +54,43 @@
 
 Software deployment meant...
 
-* ...to install the software on the clients hardware.
-* ...to use the software's buildsystem.
-* ...and to install it's dependencies.
-* ...using the dependencie's buildsystems.
-* ...fixing possible bugs on the client's platform.
-* ...fixing possible dependencies bugs. 
-* ...paying treatment cost developer's burnout.
+<p class="fragment" data-fragment-index="1">...to install the software on the clients hardware.</p>
+<p class="fragment" data-fragment-index="2">...to use the software's buildsystem.</p>
+<p class="fragment" data-fragment-index="3">...and to install it's dependencies.</p>
+<p class="fragment" data-fragment-index="4">...using the dependencie's buildsystems.</p>
+<p class="fragment" data-fragment-index="5">...fixing possible bugs on the client's platform.</p>
+<p class="fragment" data-fragment-index="6">...fixing possible dependencies bugs. </p>
+<p class="fragment" data-fragment-index="7">...paying treatment cost developer's burnout.</p>
 
 # A bit more recent
 
-* Hey, lets use virtualization for testing!
-* Simulate the clients environment in a virtual machine.
-* Test it in the VM, just copy the tested software over.
-* What if the clients environment changes?
+<p class="fragment" data-fragment-index="1">Hey, lets use virtualization for testing!</p>
+<p class="fragment" data-fragment-index="2">Simulate the clients environment in a virtual machine.</p>
+<p class="fragment" data-fragment-index="3">Test it in the VM, just copy the tested software over.</p>
+<p class="fragment" data-fragment-index="4">What if the clients environment changes?</p>
 
 # Try again
 
-* Hey, just lets ship the Virtual Machine Image!
-* Works. 
-* But feels like an awful hack.
-* Deploying a 5GB+ VM image on every software update.
-* Seriously?
+<p class="fragment" data-fragment-index="1">Hey, just lets ship the Virtual Machine Image!</p>
+<p class="fragment" data-fragment-index="2">Works. </p>
+<p class="fragment" data-fragment-index="3">But feels like an awful hack.</p>
+<p class="fragment" data-fragment-index="4">Deploying a 5GB+ VM image on every software update.</p>
+<p class="fragment" data-fragment-index="5">Seriously?</p>
 
 # Docker to the rescue
 
-* Containers instead of Images.
+* Containers and Images instead of Virtual Machines.
 * Deploying the ``diff`` instead of the whole container.
 * Base images for many popular linux distributions.
 * New base images can be uploaded to [DockerHub](https://hub.docker.com/).
 * Docker is the application engine that is able to run containers.
+* Usually used completely from the commandline.
+
+<aside class="notes">
+    Docker knows Images too, but many containers can be spawned from the same 
+    image. A container is just an actively running image with an application
+    in it. On updates, only the diff is deployed, which is usually only a few MB large.
+</aside>
 
 # Features
 
@@ -122,8 +129,16 @@ Software deployment meant...
 
 <section><pre><code class="bash">
 $ docker images
-$ docker run base/arch "echo hello augsburg!"
+$ docker run base/arch echo "hello augsburg."
 </code></pre></section>
+
+<aside class="notes">
+    Let's start with Hello world.
+    Dockerd already runs.
+    Notice how fast the container goes up.
+    You always start from a base image, which 
+    is usually just a normal stripped down linux distribution.
+</aside>
 
 ## Entering a container
 
@@ -131,14 +146,17 @@ $ docker run base/arch "echo hello augsburg!"
 $ uname -a
 $ docker run -t -i base/arch /bin/bash
 > uname -a
-> rm -r /bin
+> pacman -Syy cowsay
+> cowsay "hello augsburg again."
 </code></pre></section>
 
 ## Versioning
 
 <section><pre><code class="bash">
-$ docker diff
-$ docker hub
+$ docker ps
+$ docker diff 42cb46e2430f
+$ docker commit 42cb46e2430f sahib/cowsay_arch
+$ docker push sahib/cowsay_arch
 </code></pre></section>
 
 # Usecases
@@ -146,6 +164,7 @@ $ docker hub
 * Deployment.
 * Sandboxing applications.
 * Testbed for application developement.
+
 <aside class="notes">
     Personal usecase: running a self-written duplicate finder on / 
     System still working? No? Just restart the container.
@@ -160,7 +179,7 @@ $ docker hub
 <img src="core-os-logo.png" alt="Two containers"/>
 
 
-# So, docker is the new thing? 
+# So, docker is *the new* virtualization? 
 
 Depends on your usecase.
 
@@ -179,6 +198,13 @@ Depends on your usecase.
 
 Yes.
 
+<aside class="notes">
+    Virtualization is still mightier.
+    Docker is just an lightweight alternative in a lot of cases
+    VMs are still useful for high availability and reliable
+    Also if you need to run whole systems instead of separate applications
+</aside>
+
 # References
 
 ``Docker on Wikipedia:`` 
@@ -193,8 +219,8 @@ Yes.
 
 [https://coreos.com]()
 
-
-
 # Thank you for your attention
 
 (*Hooray, school's out!*)
+
+## Questions?

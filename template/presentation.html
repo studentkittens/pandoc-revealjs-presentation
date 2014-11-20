@@ -110,44 +110,79 @@ Before we actually start, there are some terms that need clarification.
 </aside>
 
 <p>Software deployment meant...</p>
-<ul>
-<li>...to install the software on the clients hardware.</li>
-<li>...to use the software's buildsystem.</li>
-<li>...and to install it's dependencies.</li>
-<li>...using the dependencie's buildsystems.</li>
-<li>...fixing possible bugs on the client's platform.</li>
-<li>...fixing possible dependencies bugs.</li>
-<li>...paying treatment cost developer's burnout.</li>
-</ul>
+<p class="fragment" data-fragment-index="1">
+...to install the software on the clients hardware.
+</p>
+<p class="fragment" data-fragment-index="2">
+...to use the software's buildsystem.
+</p>
+<p class="fragment" data-fragment-index="3">
+...and to install it's dependencies.
+</p>
+<p class="fragment" data-fragment-index="4">
+...using the dependencie's buildsystems.
+</p>
+<p class="fragment" data-fragment-index="5">
+...fixing possible bugs on the client's platform.
+</p>
+<p class="fragment" data-fragment-index="6">
+...fixing possible dependencies bugs.
+</p>
+<p class="fragment" data-fragment-index="7">
+...paying treatment cost developer's burnout.
+</p>
+
 </section>
 <section id="a-bit-more-recent" class="level1">
 <h1>A bit more recent</h1>
-<ul>
-<li>Hey, lets use virtualization for testing!</li>
-<li>Simulate the clients environment in a virtual machine.</li>
-<li>Test it in the VM, just copy the tested software over.</li>
-<li>What if the clients environment changes?</li>
-</ul>
+<p class="fragment" data-fragment-index="1">
+Hey, lets use virtualization for testing!
+</p>
+<p class="fragment" data-fragment-index="2">
+Simulate the clients environment in a virtual machine.
+</p>
+<p class="fragment" data-fragment-index="3">
+Test it in the VM, just copy the tested software over.
+</p>
+<p class="fragment" data-fragment-index="4">
+What if the clients environment changes?
+</p>
+
 </section>
 <section id="try-again" class="level1">
 <h1>Try again</h1>
-<ul>
-<li>Hey, just lets ship the Virtual Machine Image!</li>
-<li>Works.</li>
-<li>But feels like an awful hack.</li>
-<li>Deploying a 5GB+ VM image on every software update.</li>
-<li>Seriously?</li>
-</ul>
+<p class="fragment" data-fragment-index="1">
+Hey, just lets ship the Virtual Machine Image!
+</p>
+<p class="fragment" data-fragment-index="2">
+Works.
+</p>
+<p class="fragment" data-fragment-index="3">
+But feels like an awful hack.
+</p>
+<p class="fragment" data-fragment-index="4">
+Deploying a 5GB+ VM image on every software update.
+</p>
+<p class="fragment" data-fragment-index="5">
+Seriously?
+</p>
+
 </section>
 <section id="docker-to-the-rescue" class="level1">
 <h1>Docker to the rescue</h1>
 <ul>
-<li>Containers instead of Images.</li>
+<li>Containers and Images instead of Virtual Machines.</li>
 <li>Deploying the <code>diff</code> instead of the whole container.</li>
 <li>Base images for many popular linux distributions.</li>
 <li>New base images can be uploaded to <a href="https://hub.docker.com/">DockerHub</a>.</li>
 <li>Docker is the application engine that is able to run containers.</li>
+<li>Usually used completely from the commandline.</li>
 </ul>
+<aside class="notes">
+    
+Docker knows Images too, but many containers can be spawned from the same image. A container is just an actively running image with an application in it. On updates, only the diff is deployed, which is usually only a few MB large.
+</aside>
+
 </section>
 <section id="features" class="level1">
 <h1>Features</h1>
@@ -194,8 +229,13 @@ Before we actually start, there are some terms that need clarification.
 <h2>Hello World</h2>
 <section><pre><code class="bash">
 $ docker images
-$ docker run base/arch "echo hello augsburg!"
+$ docker run base/arch echo "hello augsburg."
 </code></pre></section>
+
+<aside class="notes">
+    
+Let's start with Hello world. Dockerd already runs. Notice how fast the container goes up. You always start from a base image, which is usually just a normal stripped down linux distribution.
+</aside>
 
 </section>
 <section id="entering-a-container" class="level2">
@@ -204,15 +244,18 @@ $ docker run base/arch "echo hello augsburg!"
 $ uname -a
 $ docker run -t -i base/arch /bin/bash
 > uname -a
-> rm -r /bin
+> pacman -Syy cowsay
+> cowsay "hello augsburg again."
 </code></pre></section>
 
 </section>
 <section id="versioning" class="level2">
 <h2>Versioning</h2>
 <section><pre><code class="bash">
-$ docker diff
-$ docker hub
+$ docker ps
+$ docker diff 42cb46e2430f
+$ docker commit 42cb46e2430f sahib/cowsay_arch
+$ docker push sahib/cowsay_arch
 </code></pre></section>
 
 </section>
@@ -222,12 +265,14 @@ $ docker hub
 <ul>
 <li>Deployment.</li>
 <li>Sandboxing applications.</li>
-<li>Testbed for application developement.
+<li>Testbed for application developement.</li>
+</ul>
 <aside class="notes">
     
 Personal usecase: running a self-written duplicate finder on / System still working? No? Just restart the container.
 </aside>
-</li>
+
+<ul>
 <li>Cluster Management with <code>CoreOS</code>.</li>
 <li>...</li>
 </ul>
@@ -236,8 +281,8 @@ Personal usecase: running a self-written duplicate finder on / System still work
 <h1></h1>
 <p><img src="core-os.png" alt="Two containers"/> <img src="core-os-logo.png" alt="Two containers"/></p>
 </section>
-<section id="so-docker-is-the-new-thing" class="level1">
-<h1>So, docker is the new thing?</h1>
+<section id="so-docker-is-the-new-virtualization" class="level1">
+<h1>So, docker is <em>the new</em> virtualization?</h1>
 <p>Depends on your usecase.</p>
 <ul>
 <li>Still can only run Linux based containers.</li>
@@ -256,6 +301,11 @@ Personal usecase: running a self-written duplicate finder on / System still work
 <section id="are-there-areas-where-virtualization-is-still-needed" class="level1">
 <h1>Are there areas where virtualization is still needed?</h1>
 <p>Yes.</p>
+<aside class="notes">
+    
+Virtualization is still mightier. Docker is just an lightweight alternative in a lot of cases VMs are still useful for high availability and reliable Also if you need to run whole systems instead of separate applications
+</aside>
+
 </section>
 <section id="references" class="level1">
 <h1>References</h1>
@@ -269,6 +319,9 @@ Personal usecase: running a self-written duplicate finder on / System still work
 <section id="thank-you-for-your-attention" class="level1">
 <h1>Thank you for your attention</h1>
 <p>(<em>Hooray, school's out!</em>)</p>
+<section id="questions" class="level2">
+<h2>Questions?</h2>
+</section>
 </section>
 </div>
 
