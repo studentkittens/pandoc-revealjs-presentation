@@ -49,112 +49,150 @@
 </section>  
 
 
-<section id="distributed-filemanagement-with-git-annex" class="level1">
-<h1>Distributed filemanagement with git-annex</h1>
+<style>
+    .reveal section img { background:none; border:none; box-shadow:none; }
+    .reveal h1 { font-size: 2.0em; } 
+</style>
+
+<section id="distributed-filemanagement-using-git-annex" class="level1">
+<h1>Distributed filemanagement using git-annex</h1>
 <figure>
 <img src="logo.svg" />
 </figure>
 </section>
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
-<section id="status-quo---cloud-storage" class="level2">
-<h2>Status quo - cloud storage</h2>
+<p>Cloud storage is a comfortable solution to share data across several systems and networks</p>
+</section>
+<section id="cloud-storage-services" class="level1">
+<h1>Cloud storage services</h1>
 <ul>
 <li>Today data should be always accessible, on different system</li>
 <li><p>Using a cloud service like</p>
 <ul>
 <li>Box.com</li>
-<li>Megaupload</li>
 <li>Dropbox</li>
-<li>Google Drive</li>
+<li>Megaupload</li>
 <li>...</li>
 </ul></li>
 </ul>
-<p>makes sense!</p>
+<p>makes sense...but</p>
 </section>
-<section id="status-quo---issues" class="level2">
-<h2>Status quo - issues</h2>
+<section id="there-are-issues" class="level1">
+<h1>There are Issues</h1>
 <ul>
-<li>But is your data ,,safe&quot;?
+<li>Is your data ,,safe&quot; inside the cloud?
 <ul>
-<li><a href="http://www.netzwelt.de/news/149339-dropbox-fehler-loescht-dateien-dokumente-nutzern.html">Dropbox issue made password optional</a> for several hours</li>
-<li><a href="http://techcrunch.com/2011/06/20/dropbox-security-bug-made-passwords-optional-for-four-hours/">Data loss</a> caused by a bug</li>
+<li><a href="http://techcrunch.com/2011/06/20/dropbox-security-bug-made-passwords-optional-for-four-hours/">Dropbox issue made password optional</a> for several hours</li>
+<li><a href="http://www.netzwelt.de/news/149339-dropbox-fehler-loescht-dateien-dokumente-nutzern.html">Data loss</a> caused by a bug in Dropbox Client</li>
+<li>Megaupload taken down by FBI</li>
+<li>...</li>
+</ul></li>
+<li>Local storage
+<ul>
+<li>Hard drives often silently fail</li>
+<li>Data gets corrupted by malicious software</li>
+<li>...</li>
 </ul></li>
 </ul>
 </section>
-<section id="status-quo---solution" class="level2">
-<h2>Status quo - solution</h2>
-<ul>
-<li><p>Solution?</p>
+<section id="a-possible-solution" class="level1">
+<h1>A possible Solution</h1>
+<p>To keep your data safe and secured not just a backup but a backup strategy is needed.</p>
 <ul>
 <li>Backup important data to different location</li>
 <li>Encrypt sensible data if it is stored in the ,,cloud&quot;</li>
-<li>Track your data, verify your data</li>
-</ul></li>
-<li><p>Oh... it sounds hard... Yes, it is if you don't use the ,,right&quot; tool!</p></li>
+<li>Track your data, verify your data because hardware is error-prone</li>
 </ul>
-</section>
+<p>Too much effort, right?</p>
 </section>
 <section id="git---a-developers-view" class="level1">
 <h1>Git - A developers view!</h1>
 <p>Git is a version control system primary used by developers to track their code changes.</p>
 <ul>
-<li><p>Linus Torvalds calls it: A ,,stupid&quot; content tracker.</p></li>
+<li>Linus Torvalds calls it: A ,,stupid&quot; content tracker.</li>
+</ul>
+<figure>
+<img src="git-logo.png" />
+</figure>
+<ul>
 <li>Problem:
 <ul>
 <li>Not suitable for big binary data</li>
 </ul></li>
 </ul>
 </section>
-<section id="git-annex" class="level1">
-<h1>Git-annex</h1>
-<section id="overview" class="level2">
-<h2>Overview</h2>
+<section id="git-annex-overview" class="level1">
+<h1>Git-annex Overview</h1>
 <p>Git-annex is a tool that extends the git concept by only tracking the content's metadata. In this way it allows git to track large binary files without checking them into git.</p>
 <ul>
-<li>A tool primary written by a developer for developers (usually commandline tool)</li>
+<li>Crowdfunding project, reached over $20000</li>
+<li>Written in Haskell by Joey Hess, a former Debian Developer</li>
+<li>Free Software</li>
+</ul>
+<figure>
+<img src="logo.svg" />
+</figure>
+<ul>
+<li>It is a tool primary written by a developer for developers (usually commandline tool)</li>
 <li>But, now there is a fancy GUI which makes git-annex more user friendly</li>
 </ul>
 </section>
-<section id="project-specs" class="level2">
-<h2>Project specs</h2>
+<section id="git-annex-features" class="level1">
+<h1>Git-annex Features</h1>
 <ul>
-<li>Crowdfunding project</li>
-<li>free software</li>
+<li>Distributed file synchronisation tool</li>
+<li>Extents git concept by special remotes</li>
+<li>Supports different encryption use cases</li>
+<li>Integrated file integrity check</li>
+<li>Location tracking of files</li>
+<li>Many others...</li>
 </ul>
 </section>
-</section>
-<section id="repositories" class="level1">
-<h1>Repositories</h1>
+<section id="repositories-and-remotes" class="level1">
+<h1>Repositories and Remotes</h1>
 <ul>
-<li>Usualy git remotes -&gt; local, remote</li>
+<li><p>A repository is the place where your files are stored. Usually this are so called git remotes. Git remotes have a <code>.git</code> folder with a specific structure.</p></li>
+<li><p>A remote is a external place where a repository may be stored. This might be for example a external usbdrive oder a cloud service</p></li>
 </ul>
 </section>
-<section id="section" class="level1">
-<h1></h1>
-</section>
-<section id="special-remotes" class="level1">
-<h1>Special remotes</h1>
-<p>Extends the git functionality by adding additional remotes which are not git remotes.</p>
+<section id="the-git-annex-commandline-usage" class="level1">
+<h1>The git-annex Commandline Usage</h1>
+<pre><code>$ git init myrepo
+Initialized empty Git repository in /home/qitta/myrepo/.git/
+$ cd myrepo
+$ git annex init &#39;myrepo&#39;
+init myrepo ok
+(Recording state in git...)</code></pre>
 <ul>
-<li>File content only</li>
-<li><p>REST API</p>
+<li><code>git-annex</code> commands to work with:
 <ul>
-<li>S3</li>
-<li>rsync</li>
-<li>WebDAV</li>
-<li>etc</li>
+<li>add <filename></li>
+<li>drop <filename></li>
+<li>whereis <filename></li>
+<li>info <filename></li>
 </ul></li>
+<li>Just type <code>git-annex</code> to get the whole list or check the manpage. Usual <code>git</code> commands are used to add/remove remotes, check status or commit changes.</li>
 </ul>
 </section>
-<section id="encryption" class="level1">
-<h1>Encryption</h1>
-<p>Git-annex supports different encryption types:</p>
+<section id="demonstration-git-annex-basics" class="level1">
+<h1>Demonstration git-annex basics</h1>
 <ul>
-<li>hybrid (recommended)</li>
-<li>shared</li>
-<li>picture</li>
+<li>Often it is better so see something working in action!</li>
 </ul>
+</section>
+<section id="git-annex-assistant-gui-interface" class="level1">
+<h1>Git-annex assistant GUI-Interface</h1>
+<ul>
+<li>“Like DropBox, but with your own cloud”</li>
+</ul>
+<figure>
+<img src="example.png" />
+</figure>
+</section>
+<section id="operating-system-support" class="level1">
+<h1>Operating System Support</h1>
+<p><img class="no_img_border" src="linux-logo.png" height="200" width="200"/> <img class="no_img_border" src="freebsd-logo.png" height="200" width="200"/> <img class="no_img_border" src="macos-logo.png" height="200" width="200"/> <img class="no_img_border" src="android_logo.png" height="200" width="200"/> <img class="no_img_border" src="windows-logo.png" height="200" width="200"/></p>
 </section>
 </div>
 

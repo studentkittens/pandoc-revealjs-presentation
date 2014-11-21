@@ -1,38 +1,52 @@
+<style>
+    .reveal section img { background:none; border:none; box-shadow:none; }
+    .reveal h1 { font-size: 2.0em; } 
+</style>
 
-# Distributed filemanagement with git-annex
+# Distributed filemanagement using git-annex
 
 ![](logo.svg)
 
 # Introduction 
 
-## Status quo - cloud storage
+Cloud storage is a comfortable solution to share data across several systems and networks
+
+# Cloud storage services
 
 * Today data should be always accessible, on different system
 * Using a cloud service like 
 
     * Box.com
-    * Megaupload
     * Dropbox
-    * Google Drive 
+    * Megaupload
     * ...
 
-makes sense!
+makes sense...but
 
-## Status quo - issues
+# There are Issues
 
-* But is your data ,,safe"?
-    * [Dropbox issue made password optional](http://www.netzwelt.de/news/149339-dropbox-fehler-loescht-dateien-dokumente-nutzern.html) for several hours
-    * [Data loss](http://techcrunch.com/2011/06/20/dropbox-security-bug-made-passwords-optional-for-four-hours/) caused by a bug 
+* Is your data ,,safe" inside the cloud?
+    * [Dropbox issue made password optional](http://techcrunch.com/2011/06/20/dropbox-security-bug-made-passwords-optional-for-four-hours/) for several hours
+    * [Data loss](http://www.netzwelt.de/news/149339-dropbox-fehler-loescht-dateien-dokumente-nutzern.html) caused by a bug in Dropbox Client
+    * Megaupload taken down by FBI
+    * ...
 
-## Status quo - solution
+* Local storage
+    * Hard drives often silently fail
+    * Data gets corrupted by malicious software
+    * ...
 
-* Solution?
+# A possible Solution
 
-    * Backup important data to different location
-    * Encrypt sensible data if it is stored in the ,,cloud"
-    * Track your data, verify your data
+To keep your data safe and secured not just a backup but a backup strategy is
+needed.
 
-* Oh... it sounds hard... Yes, it is if you don't use the ,,right" tool!
+* Backup important data to different location
+* Encrypt sensible data if it is stored in the ,,cloud"
+* Track your data, verify your data because hardware is error-prone
+
+Too much effort, right?
+
 
 
 # Git - A developers view!
@@ -42,48 +56,82 @@ changes.
 
 * Linus Torvalds calls it: A ,,stupid" content tracker.
 
+![](git-logo.png)
+
 * Problem:
     * Not suitable for big binary data
 
 
-# Git-annex 
 
-## Overview
+# Git-annex Overview
 
 Git-annex is a tool that extends the git concept by only tracking the content's
 metadata. In this way it allows git to track large binary files without
 checking them into git.
 
-* A tool primary written by a developer for developers (usually commandline tool)
-* But, now there is a fancy GUI which makes git-annex more user friendly
-
-## Project specs
-
-* Crowdfunding project written in Haskell by Joey Hess
+* Crowdfunding project, reached over $20000
+* Written in Haskell by Joey Hess, a former Debian Developer
 * Free Software
 
-# Repositories
+![](logo.svg)
 
-* Usualy git remotes -> local, remote
+* It is a tool primary written by a developer for developers (usually commandline tool)
+* But, now there is a fancy GUI which makes git-annex more user friendly
 
-# 
-# Special remotes
+# Git-annex Features
 
-Extends the git functionality by adding additional remotes which are not git
-remotes.
+* Distributed file synchronisation tool
+* Extents git concept by special remotes 
+* Supports different encryption use cases
+* Integrated file integrity check
+* Location tracking of files
+* Many others...
 
-* File content only
-* REST API
+# Repositories and Remotes
 
-    * S3
-    * rsync
-    * WebDAV
-    * etc
+* A repository is the place where your files are stored. Usually this are so
+called git remotes. Git remotes have a ``.git`` folder with a specific structure.
 
-# Encryption
+* A remote is a external place where a repository may be stored. This might be
+for example a external usbdrive oder a cloud service
 
-Git-annex supports different encryption types:
 
-* hybrid (recommended)
-* shared
-* picture
+# The git-annex Commandline Usage
+
+~~~
+$ git init myrepo
+Initialized empty Git repository in /home/qitta/myrepo/.git/
+$ cd myrepo
+$ git annex init 'myrepo'
+init myrepo ok
+(Recording state in git...)
+~~~
+
+* ``git-annex`` commands to work with:
+    * add <filename>
+    * drop <filename>
+    * whereis <filename>
+    * info <filename>
+
+* Just type ``git-annex`` to get the whole list or check the manpage. Usual
+``git`` commands are used to add/remove remotes, check status or commit changes.
+
+# Demonstration git-annex basics
+
+* Often it is better so see something working in action!
+
+# Git-annex assistant GUI-Interface
+
+* “Like DropBox, but with your own cloud”
+
+![](example.png)
+
+# Operating System Support
+
+<img class="no_img_border" src="linux-logo.png" height="200" width="200"/>
+<img class="no_img_border" src="freebsd-logo.png" height="200" width="200"/>
+<img class="no_img_border" src="macos-logo.png" height="200" width="200"/>
+<img class="no_img_border" src="android_logo.png" height="200" width="200"/>
+<img class="no_img_border" src="windows-logo.png" height="200" width="200"/>
+
+
