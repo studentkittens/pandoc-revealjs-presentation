@@ -9,9 +9,12 @@
 
 # Introduction 
 
-Cloud storage is a comfortable solution to share data across several systems and networks
+This presentation will give you a overview about the concepts and features
+provided by the file synchronisation tool git-annex.
 
 # Cloud storage services
+
+Cloud storage is a comfortable solution to share data across several systems and networks
 
 * Today data should be always accessible, on different system
 * Using a cloud service like 
@@ -61,6 +64,14 @@ changes.
 * Problem:
     * Not suitable for big binary data
 
+# Git concept - Repositories and Remotes
+
+* A **repository** is the **place where your files are stored.** Usually this are
+so-called git remotes. Git remotes have a ``.git`` folder with a specific
+structure.
+
+* A **remote** is a **external place where a repository may be stored.** This might be
+for example a external usbdrive oder a cloud service
 
 
 # Git-annex Overview
@@ -69,12 +80,11 @@ Git-annex is a tool that extends the git concept by only tracking the content's
 metadata. In this way it allows git to track large binary files without
 checking them into git.
 
-* Crowdfunding project, reached over $20000
-* Written in Haskell by Joey Hess, a former Debian Developer
-* Free Software
-
 ![](logo.svg)
 
+* Crowdfunding project, reached over $20000
+* Developed in Haskell by Joey Hess, a former Debian Developer
+* Free Software
 * It is a tool primary written by a developer for developers (usually commandline tool)
 * But, now there is a fancy GUI which makes git-annex more user friendly
 
@@ -86,22 +96,27 @@ checking them into git.
 
 ![](distributed.png)
 
-* Extents git concept by special remotes 
+* Git-annex extends git concept by special remotes 
 
 # Shared and hybrid encryption concept
 
 * Supports different encryption use cases
-* Integrated file integrity check
-* Location tracking of files
-* Many others...
 
-# Repositories and Remotes
+![](encryption.png)
 
-* A repository is the place where your files are stored. Usually this are so
-called git remotes. Git remotes have a ``.git`` folder with a specific structure.
+# Other git annex features
 
-* A remote is a external place where a repository may be stored. This might be
-for example a external usbdrive oder a cloud service
+* File integrity check by hashing every file with a cryptographic hashsum
+* Location tracking of files, git repository stores information about file content and remotes
+
+
+# Operating System Support
+
+<img class="no_img_border" src="linux-logo.png" height="200" width="200"/>
+<img class="no_img_border" src="freebsd-logo.png" height="200" width="200"/>
+<img class="no_img_border" src="macos-logo.png" height="200" width="200"/>
+<img class="no_img_border" src="android_logo.png" height="200" width="200"/>
+<img class="no_img_border" src="windows-logo.png" height="200" width="200"/>
 
 
 # The git-annex Commandline Usage
@@ -123,24 +138,31 @@ init myrepo ok
 
 * Just type ``git-annex`` to get the whole list or check the manpage. Usual
 ``git`` commands are used to add/remove remotes, check status or commit changes.
+* Git annex assistant to automate everything needed to synchronize files.
 
-# Demonstration git-annex basics
 
-* Often it is better so see something working in action!
+# Git-annex Webapp GUI-Interface
 
-# Git-annex assistant GUI-Interface
-
-* “Like DropBox, but with your own cloud”
+* ,,Like DropBox, but with your own cloud"
 
 ![](example.png)
 
-# Operating System Support
 
-<img class="no_img_border" src="linux-logo.png" height="200" width="200"/>
-<img class="no_img_border" src="freebsd-logo.png" height="200" width="200"/>
-<img class="no_img_border" src="macos-logo.png" height="200" width="200"/>
-<img class="no_img_border" src="android_logo.png" height="200" width="200"/>
-<img class="no_img_border" src="windows-logo.png" height="200" width="200"/>
+# Everything perfect? - Let's sum up
+
+**Pros:**
+
+* Encryption to secure your data
+* File integrity and location tracking
+* Operating system support
+* Free Software
+* Integrates itself into existing cloud environment
+
+**Cons:**
+
+* Git annex is still under heavy development
+* Commandline Interface is a high entry barrier
+
 
 # References
 
