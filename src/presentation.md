@@ -78,10 +78,18 @@ checking them into git.
 * It is a tool primary written by a developer for developers (usually commandline tool)
 * But, now there is a fancy GUI which makes git-annex more user friendly
 
-# Git-annex Features
+# File synchronisation across different devices and networks
 
-* Distributed file synchronisation tool
+![](centralized.png)
+
+# Git-annex way to synchronize your data
+
+![](distributed.png)
+
 * Extents git concept by special remotes 
+
+# Shared and hybrid encryption concept
+
 * Supports different encryption use cases
 * Integrated file integrity check
 * Location tracking of files
@@ -134,4 +142,19 @@ init myrepo ok
 <img class="no_img_border" src="android_logo.png" height="200" width="200"/>
 <img class="no_img_border" src="windows-logo.png" height="200" width="200"/>
 
+# References
+
+`Main ressource:`
+
+[https://git-annex.branchable.com/](https://git-annex.branchable.com/)
+
+`The basics, git annex walkthrough:`
+
+[https://git-annex.branchable.com/walkthrough/](https://git-annex.branchable.com/walkthrough/)
+
+`Some git-annex video tutorials` 
+
+[https://git-annex.branchable.com/videos/](https://git-annex.branchable.com/videos/)
+
+**Thank you for your attention!**
 
