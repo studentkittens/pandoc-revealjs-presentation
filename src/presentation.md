@@ -150,7 +150,7 @@ $ docker run -t -i base/arch /bin/bash
 > cowsay "hello augsburg again."
 </code></pre></section>
 
-## Versioning
+## Versioning & DockerHub
 
 <section><pre><code class="bash">
 $ docker ps
@@ -159,19 +159,21 @@ $ docker commit 42cb46e2430f sahib/cowsay_arch
 $ docker push sahib/cowsay_arch
 </code></pre></section>
 
+Container is now on [DockerHub](https://hub.docker.com/).
+
 # Usecases
 
 * Deployment.
 * Sandboxing applications.
 * Testbed for application developement.
+* Cluster Management with ``CoreOS``.
+* ...
+
 
 <aside class="notes">
     Personal usecase: running a self-written duplicate finder on / 
     System still working? No? Just restart the container.
 </aside>
-
-* Cluster Management with ``CoreOS``.
-* ...
 
 # 
 

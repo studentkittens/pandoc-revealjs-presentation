@@ -249,8 +249,8 @@ $ docker run -t -i base/arch /bin/bash
 </code></pre></section>
 
 </section>
-<section id="versioning" class="level2">
-<h2>Versioning</h2>
+<section id="versioning-dockerhub" class="level2">
+<h2>Versioning &amp; DockerHub</h2>
 <section><pre><code class="bash">
 $ docker ps
 $ docker diff 42cb46e2430f
@@ -258,6 +258,7 @@ $ docker commit 42cb46e2430f sahib/cowsay_arch
 $ docker push sahib/cowsay_arch
 </code></pre></section>
 
+<p>Container is now on <a href="https://hub.docker.com/">DockerHub</a>.</p>
 </section>
 </section>
 <section id="usecases" class="level1">
@@ -266,16 +267,14 @@ $ docker push sahib/cowsay_arch
 <li>Deployment.</li>
 <li>Sandboxing applications.</li>
 <li>Testbed for application developement.</li>
+<li>Cluster Management with <code>CoreOS</code>.</li>
+<li>...</li>
 </ul>
 <aside class="notes">
     
 Personal usecase: running a self-written duplicate finder on / System still working? No? Just restart the container.
 </aside>
 
-<ul>
-<li>Cluster Management with <code>CoreOS</code>.</li>
-<li>...</li>
-</ul>
 </section>
 <section id="section-3" class="level1">
 <h1></h1>
