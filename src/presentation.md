@@ -4,9 +4,9 @@
 
 # 
 
-![](docker-logo.png)
+<img src="docker-logo.png" width="700" />
 
-© Christopher Pahl 2014
+© 2014 Christopher Pahl
 <br />
 University of Applied Sciences Augsburg
 
@@ -35,6 +35,7 @@ University of Applied Sciences Augsburg
 * Maintained by **Docker Inc.** now
 * Lightweight tool for automated deployment.
 * But useful for many other things!
+* Free Open Source Software!
 
 <img src="gopher.png" width="300"/>
 
