@@ -6,6 +6,10 @@
 # Distributed filemanagement using git-annex
 
 <img class="no_img_border" src="logo.svg" height=400"/>
+<br/>
+© 2014 Christoph Piechula
+<br/>
+University of Applied Sciences Augsburg
 
 # Introduction 
 
@@ -76,7 +80,7 @@ changes.
 # Git concept - Repositories and Remotes
 
 * A **repository** is the **place where your files are stored.** Usually this are
-so-called git repositories. Git remotes have a ``.git`` folder with a specific
+so-called git repositories. Git repositories have a ``.git`` folder with a specific
 structure.
 
 * A **remote** is a **external place where a repository may be stored.** This might be
@@ -90,6 +94,7 @@ metadata. In this way it allows git to track large binary files without
 checking them into git.
 
 <img class="no_img_border" src="logo.svg" height="150" width="150"/>
+<img class="no_img_border" src="haskell.png" height="100"/>
 
 * Crowdfunding project, reached over $20000
 * Developed in Haskell by Joey Hess
