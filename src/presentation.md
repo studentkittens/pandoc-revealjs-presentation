@@ -6,12 +6,16 @@
 
 ![](docker-logo.png)
 
-# Welcome!
+© Christopher Pahl 2014
+<br />
+University of Applied Sciences Augsburg
 
+# Welcome!
 
 <p class="fragment" data-fragment-index="1"><b>Poll:</b> Who knows Virtualization/Sandboxing/Docker?</p>
 <p class="fragment" data-fragment-index="2">Presentation is less technical than usual.</p>
-<p class="fragment" data-fragment-index="3">Although might be a bit linux centered. <br /> 
+<p class="fragment" data-fragment-index="3">But it's still technical. Sorry in advance.</p>
+<p class="fragment" data-fragment-index="4">Might be a bit linux centered. <br /> 
 <style>
     .reveal section img { background:none; border:none; box-shadow:none; }
 </style>
@@ -23,6 +27,16 @@
 <aside class="notes">
     Presentation is done in jovial tone.
 </aside>
+
+# Docker Metadata
+
+* Developed by **dotCloud.com** around 2013
+* Written in the Go programming language
+* Maintained by **Docker Inc.** now
+* Lightweight tool for automated deployment.
+* But useful for many other things!
+
+<img src="gopher.png" width="300"/>
 
 # Terms
 
@@ -116,7 +130,6 @@ Software deployment meant...
 
 * **cgroups:** Grouping processes together.
 * **namespaces:** Separate processes in own namespaces.
-* **LXC:** Combines both to provide *Operating system-level virtualization.*
 * **aufs:** Overlay file system.
 
 # 
