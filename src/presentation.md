@@ -5,12 +5,21 @@
 
 # Distributed filemanagement using git-annex
 
-![](logo.svg)
+<img class="no_img_border" src="logo.svg" height=400"/>
 
 # Introduction 
 
 This presentation will give you a overview about the concepts and features
-provided by the file synchronisation tool git-annex.
+provided by the file synchronisation tool git-annex. 
+
+**Well, you will learn about:**
+
+* File synchronisation systems and their issues
+* Git annex **repositories** and **remotes**
+* Git annex **distributed** synchronization concept
+* Git annex **security concepts**
+* Git annex assistant **webapp** tool
+
 
 # Cloud storage services
 
@@ -59,7 +68,7 @@ changes.
 
 * Linus Torvalds calls it: A ,,stupid" content tracker.
 
-![](git-logo.png)
+<img class="no_img_border" src="git-logo.png" height="200" width="200"/>
 
 * Problem:
     * Not suitable for big binary data
@@ -67,7 +76,7 @@ changes.
 # Git concept - Repositories and Remotes
 
 * A **repository** is the **place where your files are stored.** Usually this are
-so-called git remotes. Git remotes have a ``.git`` folder with a specific
+so-called git repositories. Git remotes have a ``.git`` folder with a specific
 structure.
 
 * A **remote** is a **external place where a repository may be stored.** This might be
@@ -80,13 +89,13 @@ Git-annex is a tool that extends the git concept by only tracking the content's
 metadata. In this way it allows git to track large binary files without
 checking them into git.
 
-![](logo.svg)
+<img class="no_img_border" src="logo.svg" height="150" width="150"/>
 
 * Crowdfunding project, reached over $20000
-* Developed in Haskell by Joey Hess, a former Debian Developer
+* Developed in Haskell by Joey Hess
 * Free Software
-* It is a tool primary written by a developer for developers (usually commandline tool)
-* But, now there is a fancy GUI which makes git-annex more user friendly
+* Primary a commandline tool
+* Now, there is a fancy GUI 
 
 # File synchronisation across different devices and networks
 
@@ -94,20 +103,26 @@ checking them into git.
 
 # Git-annex way to synchronize your data
 
-![](distributed.png)
+<img class="no_img_border" src="distributed.png" height="500"/>
 
 * Git-annex extends git concept by special remotes 
 
 # Shared and hybrid encryption concept
 
-* Supports different encryption use cases
 
-![](encryption.png)
+<img class="no_img_border" src="encryption.png" height="500"/>
+
+* Supports different encryption use cases
 
 # Other git annex features
 
-* File integrity check by hashing every file with a cryptographic hashsum
-* Location tracking of files, git repository stores information about file content and remotes
+<img class="no_img_border" src="logo.svg" height="150" width="150"/>
+
+* File integrity check (cryptographic hashsum)
+* Location tracking 
+* Minimum number of copies
+* Different repository groups
+* Repository trust levels
 
 
 # Operating System Support
@@ -138,7 +153,6 @@ init myrepo ok
 
 * Just type ``git-annex`` to get the whole list or check the manpage. Usual
 ``git`` commands are used to add/remove remotes, check status or commit changes.
-* Git annex assistant to automate everything needed to synchronize files.
 
 
 # Git-annex Webapp GUI-Interface
