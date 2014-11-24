@@ -128,6 +128,7 @@ checking them into git.
 * Minimum number of copies
 * Different repository groups
 * Repository trust levels
+* Chunked file upload support
 
 
 # Operating System Support
@@ -171,11 +172,12 @@ init myrepo ok
 
 **Pros:**
 
+* Integrates itself into existing cloud environment
 * Encryption to secure your data
 * File integrity and location tracking
+* Chunked file upload support
+* Free and Open Source Software
 * Operating system support
-* Free Software
-* Integrates itself into existing cloud environment
 
 **Cons:**
 
